@@ -4,9 +4,10 @@
   "description": "Database that allows users to register/login to find animals around their current vicinity that need to be adopted and/or rehomed immediately. ",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./index.js",
+    "start": "babel-node ./server/index.js",
     "lint": "eslint . --ext .js,.jsx",
-    "test": "test"
+    "test": "test",
+    "dev": "nodemon --exec babel-node ./server/index.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.10.0",
+    "nodemon": "^1.17.5",
     "pre-commit": "^1.2.2"
   },
   "pre-commit": [
