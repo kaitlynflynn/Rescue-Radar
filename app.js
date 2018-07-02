@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
+import logger from 'morgan';
 import routes from './routes/index';
 
 // use dotenv
@@ -20,6 +21,9 @@ app.use(express.static(path.join(__dirname, './public')));
 
 // use routes
 app.use('/', routes); // <-- error 404 handler comes after this
+
+// logger
+app.use(logger('combined'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
