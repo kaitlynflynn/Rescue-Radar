@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 import logger from 'morgan';
 import routes from './routes/index';
 
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
 // use dotenv
 dotenv.config({
   silent: true,
@@ -24,6 +27,13 @@ app.use('/', routes); // <-- error 404 handler comes after this
 
 // logger
 app.use(logger('combined'));
+
+// body parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// cookie parser
+app.use(cookieParser());
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
